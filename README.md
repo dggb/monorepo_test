@@ -9,6 +9,7 @@
 - **Docker 및 Nginx 통합**: Docker와 Nginx를 사용하여 개발 환경을 설정하고 배포를 테스트.
   
 ## 프로젝트 구조
+```plaintext
 monorepo/
 ├── nginx/ # Nginx 설정
 │ ├── conf.d/
