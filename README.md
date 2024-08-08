@@ -21,6 +21,7 @@ monorepo/
 │ └── vue2-project/ # Vue 2 프로젝트
 │ │ └── Dockerfile # Vue 프로젝트의 Docker 설정 파일
 └── docker-compose.yml # Docker Compose 설정 파일
+```
 
 ## 사용한 기술 스택
 
