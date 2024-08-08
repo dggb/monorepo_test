@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  vue-container:
+    build:
+      context: ./projects/vue2-project
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    volumes:
+      - shared-data:/app/data
+    networks:
+      - webnet
+
+  react-container:
+    build:
+      context: ./projects/react-ts-project
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - shared-data:/app/data
+    networks:
+      - webnet
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    depends_on:
+      - vue-container
+      - react-container
+    networks:
+      - webnet
+
+volumes:
+  shared-data:
+
+networks:
+  webnet:
